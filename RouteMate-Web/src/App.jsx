@@ -3,6 +3,7 @@ import Navbar from "./components/navbar";
 import Home from "./pages/home";
 import Create from "./components/create";
 import EventDetail from "./pages/events";
+import Footer from "./pages/footer";
 function App() {
   return (
     <Router>
@@ -16,6 +17,7 @@ function App() {
           <Route path="/events/:id" element={<EventDetail />} />
           <Route path="/join" element={<h1 className="p-6">Join Page</h1>} />
         </Routes>
+        <Footer />
       </div>
     </Router>
   );
