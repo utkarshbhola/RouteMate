@@ -7,12 +7,16 @@ export default function Navbar() {
 
   return (
     <nav className="bg-[#fefbf6] px-6 py-4 flex items-center justify-between font-['SUSE_Mono'] shadow">
-      {/* Left - Avatar */}
-      <div className="flex items-center gap-3">
-        <div className="w-10 h-10 rounded-full bg-gray-400"></div>
+      {/* Left - Brand */}
+      <div className="flex items-center">
+        <h1 className="text-xl font-bold">
+          <Link to="/" className="hover:underline">
+            RouteMate
+          </Link>
+        </h1>
       </div>
 
-      {/* Middle (search + host button, only visible on md+) */}
+      {/* Middle - Search + Host button (only md+) */}
       <div className="hidden md:flex items-center gap-3 flex-1 justify-center">
         <input
           type="text"
@@ -27,36 +31,26 @@ export default function Navbar() {
         </Link>
       </div>
 
-      {/* Right - Title + Hamburger */}
+      {/* Right - Hamburger / Login Signup */}
       <div className="flex items-center gap-4 relative">
-        <h1 className="text-xl font-bold">RouteMate</h1>
-        <button className="md:hidden" onClick={() => setOpen(!open)}>
-          {open ? <X size={28} /> : <Menu size={28} />}
-        </button>
-
         {/* Desktop links */}
         <ul className="hidden md:flex gap-6 text-sm">
           <li>
-            <Link to="/about" className="hover:underline">
-              About
+            <Link to="/login" className="hover:underline">
+              Login
             </Link>
           </li>
           <li>
-            <Link to="/events" className="hover:underline">
-              Events
-            </Link>
-          </li>
-          <li>
-            <Link to="/create" className="hover:underline">
-              Host
-            </Link>
-          </li>
-          <li>
-            <Link to="/join" className="hover:underline">
-              Join
+            <Link to="/signup" className="hover:underline">
+              Sign Up
             </Link>
           </li>
         </ul>
+
+        {/* Mobile hamburger */}
+        <button className="md:hidden" onClick={() => setOpen(!open)}>
+          {open ? <X size={28} /> : <Menu size={28} />}
+        </button>
 
         {/* Mobile dropdown */}
         {open && (
@@ -74,23 +68,13 @@ export default function Navbar() {
             </Link>
             <ul className="flex flex-col gap-2">
               <li>
-                <Link to="/about" className="hover:underline">
-                  About
+                <Link to="/login" className="hover:underline">
+                  Login
                 </Link>
               </li>
               <li>
-                <Link to="/events" className="hover:underline">
-                  Events
-                </Link>
-              </li>
-              <li>
-                <Link to="/create" className="hover:underline">
-                  Host
-                </Link>
-              </li>
-              <li>
-                <Link to="/join" className="hover:underline">
-                  Join
+                <Link to="/signup" className="hover:underline">
+                  Sign Up
                 </Link>
               </li>
             </ul>
